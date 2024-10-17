@@ -2,6 +2,10 @@
 #include<math.h>
 #include<cmath>
 #include<ctime>
+#include <algorithm>
+
+
+
 
 #define MAX 1000
 
@@ -14,7 +18,28 @@ int randNumPo(DaySo a);
 int randNumPoAndNe(DaySo a);
 void nhapMang(DaySo a, int n);
 void xuatMang(DaySo a, int n);
-int tangHoacGiam(DaySo a,  int n, int thuTu);
+void tangHoacGiam(DaySo a,  int n, int thuTu);
+void soDuongTang(DaySo a, int n);
+void so0Cuoi(DaySo a, int n);
+void so0_AmGiam_DuongTang(DaySo a, int n);
+void leDauChanCuoi(DaySo a, int n);
+void leGiamDuongTang(DaySo a, int n);
+void xaoTronNgauNhien(DaySo a, int n);
+void NTDauTang_ConLaiGiam(DaySo a, int n);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 void choiseMenu(DaySo a,int choise, int n){
@@ -23,7 +48,7 @@ void choiseMenu(DaySo a,int choise, int n){
     switch(choise){
         
         case 1: 
-            int thuTu;
+        int  thuTu;
             cout << "neu ban muon day tang chon 1, muon giam chon 2: ";
             cin >> thuTu;
             cout << "Ban co muon tao mang tu dong khong? (Neu co bam 1, neu khong bam 0 de tiep tuc): ";
@@ -41,18 +66,212 @@ void choiseMenu(DaySo a,int choise, int n){
 
                 }
                 tangHoacGiam(a, phanTu, thuTu);
-                xuatMang(a, phanTu);
+
             }
             else{
                 cout << "nguoi dung hay nhap so n: ";
                 cin >> n;
                 nhapMang(a, n);
                  tangHoacGiam(a, n, thuTu);
-                 xuatMang(a, n);
             }
 
 
             break;
+        case 2:
+            
+            
+            cout << "Ban co muon tao mang tu dong khong? (Neu co bam 1, neu khong bam 0 de tiep tuc): ";
+            cin >> TD;
+           
+            if (TD == 1) {
+                cout << "so ngau nhien cua ban muon co so am va duong hay chi duy nhat so duong(am va duong nham 2, duy nhat duong nhan 1): ";
+                cin >> dau;
+                int phanTu, dem;
+                 if (dau == 1) {
+                    phanTu = randNumPo(a);
+                    
+                } else {
+                    phanTu = randNumPoAndNe(a);
+
+                }
+                soDuongTang(a, phanTu);
+
+            }
+            else{
+                cout << "nguoi dung hay nhap so n: ";
+                cin >> n;
+                nhapMang(a, n);
+                soDuongTang(a, n);
+            }
+
+            break;
+        case 3:
+            
+            cout << "Ban co muon tao mang tu dong khong? (Neu co bam 1, neu khong bam 0 de tiep tuc): ";
+            cin >> TD;
+           
+            if (TD == 1) {
+                cout << "so ngau nhien cua ban muon co so am va duong hay chi duy nhat so duong(am va duong nham 2, duy nhat duong nhan 1): ";
+                cin >> dau;
+                int phanTu, dem;
+                 if (dau == 1) {
+                    phanTu = randNumPo(a);
+                    
+                } else {
+                    phanTu = randNumPoAndNe(a);
+
+                }
+                so0Cuoi(a, phanTu);
+
+            }
+            else{
+                cout << "nguoi dung hay nhap so n: ";
+                cin >> n;
+                nhapMang(a, n);
+                so0Cuoi(a, n);
+            }
+
+            break;
+            case 4:
+            
+            cout << "Ban co muon tao mang tu dong khong? (Neu co bam 1, neu khong bam 0 de tiep tuc): ";
+            cin >> TD;
+           
+            if (TD == 1) {
+                cout << "so ngau nhien cua ban muon co so am va duong hay chi duy nhat so duong( duy nhat duong nhan 1, am va duong nham 2): ";
+                cin >> dau;
+                int phanTu, dem;
+                 if (dau == 1) {
+                    phanTu = randNumPo(a);
+                    
+                } else {
+                    phanTu = randNumPoAndNe(a);
+
+                }
+                so0_AmGiam_DuongTang(a, phanTu);
+
+            }
+            else{
+                cout << "nguoi dung hay nhap so n: ";
+                cin >> n;
+                nhapMang(a, n);
+                so0_AmGiam_DuongTang(a, n);
+            }
+
+            break;
+            
+            case 5:
+            
+            cout << "Ban co muon tao mang tu dong khong? (Neu co bam 1, neu khong bam 0 de tiep tuc): ";
+            cin >> TD;
+           
+            if (TD == 1) {
+                cout << "so ngau nhien cua ban muon co so am va duong hay chi duy nhat so duong( duy nhat duong nhan 1, am va duong nham 2): ";
+                cin >> dau;
+                int phanTu, dem;
+                 if (dau == 1) {
+                    phanTu = randNumPo(a);
+                    
+                } else {
+                    phanTu = randNumPoAndNe(a);
+
+                }
+                leDauChanCuoi(a, phanTu);
+
+            }
+            else{
+                cout << "nguoi dung hay nhap so n: ";
+                cin >> n;
+                nhapMang(a, n);
+                leDauChanCuoi(a, n);
+            }
+
+            break;
+            
+            case 6:
+            
+            cout << "Ban co muon tao mang tu dong khong? (Neu co bam 1, neu khong bam 0 de tiep tuc): ";
+            cin >> TD;
+           
+            if (TD == 1) {
+                cout << "so ngau nhien cua ban muon co so am va duong hay chi duy nhat so duong( duy nhat duong nhan 1, am va duong nham 2): ";
+                cin >> dau;
+                int phanTu, dem;
+                 if (dau == 1) {
+                    phanTu = randNumPo(a);
+                    
+                } else {
+                    phanTu = randNumPoAndNe(a);
+
+                }
+                leGiamDuongTang(a, phanTu);
+
+            }
+            else{
+                cout << "nguoi dung hay nhap so n: ";
+                cin >> n;
+                nhapMang(a, n);
+                leGiamDuongTang(a, n);
+            }
+
+            break;
+            
+            case 7:
+            
+            cout << "Ban co muon tao mang tu dong khong? (Neu co bam 1, neu khong bam 0 de tiep tuc): ";
+            cin >> TD;
+           
+            if (TD == 1) {
+                cout << "so ngau nhien cua ban muon co so am va duong hay chi duy nhat so duong( duy nhat duong nhan 1, am va duong nham 2): ";
+                cin >> dau;
+                int phanTu, dem;
+                 if (dau == 1) {
+                    phanTu = randNumPo(a);
+                    
+                } else {
+                    phanTu = randNumPoAndNe(a);
+
+                }
+                xaoTronNgauNhien(a, phanTu);
+
+            }
+            else{
+                cout << "nguoi dung hay nhap so n: ";
+                cin >> n;
+                nhapMang(a, n);
+                xaoTronNgauNhien(a, n);
+            }
+
+            break;
+            
+            case 8:
+            
+            cout << "Ban co muon tao mang tu dong khong? (Neu co bam 1, neu khong bam 0 de tiep tuc): ";
+            cin >> TD;
+           
+            if (TD == 1) {
+                cout << "so ngau nhien cua ban muon co so am va duong hay chi duy nhat so duong( duy nhat duong nhan 1, am va duong nham 2): ";
+                cin >> dau;
+                int phanTu, dem;
+                 if (dau == 1) {
+                    phanTu = randNumPo(a);
+                    
+                } else {
+                    phanTu = randNumPoAndNe(a);
+
+                }
+                NTDauTang_ConLaiGiam(a, phanTu);
+
+            }
+            else{
+                cout << "nguoi dung hay nhap so n: ";
+                cin >> n;
+                nhapMang(a, n);
+                NTDauTang_ConLaiGiam(a, n);
+            }
+
+            break;
+            
 
     }
 }
@@ -82,11 +301,11 @@ int randNumPo(DaySo a) {
             int multiplier = 1;
 
             for (int j = 0; j < digitCount; j++) {
-                if (j == 0) {
-                    randomNumber += (rand() % 9 + 1) * multiplier;
-                } else {
+                // if (j == 0) {
+                //     randomNumber += (rand() % 9 + 1) * multiplier;
+                // } else {
                     randomNumber += (rand() % 10) * multiplier;
-                }
+                // }
                 multiplier *= 10;
             }
 
@@ -110,7 +329,7 @@ int randNumPoAndNe(DaySo a) {
     srand(time(0));
     int n = 0;
     cout << "ban vua chon so am va duong \n";
-    cout << "Hay nhap pham vi SO LUONG chu so ma ban muon (min max): ";
+    cout << "Hay nhap pham vi SO LUONG CHU SO ma ban muon (min max): ";
     int minDigits, maxDigits;
     cin >> minDigits >> maxDigits;
 
@@ -129,11 +348,11 @@ int randNumPoAndNe(DaySo a) {
             int multiplier = 1;
 
             for (int j = 0; j < digitCount; j++) {
-                if (j == 0) {
-                    randomNumber += (rand() % 9 + 1) * multiplier;
-                } else {
+                // if (j == 0) {
+                //     randomNumber += (rand() % 9 + 1) * multiplier;
+                // } else {
                     randomNumber += (rand() % 10) * multiplier;
-                }
+                // }
                 multiplier *= 10;
             }
 
@@ -181,7 +400,7 @@ void xuatMang(DaySo a, int n){
     cout << endl;
 }
 
-void hoanVi(int a, int b){
+void hoanVi(int &a, int &b){
     int tmp;
     tmp = a;
     a = b;
@@ -189,26 +408,160 @@ void hoanVi(int a, int b){
 }
 
 
-int tangHoacGiam(DaySo a,  int n, int thuTu){
+void tangHoacGiam(DaySo a,  int n, int thuTu){
+    cout << "mang sau khi sap xep la \n";
     for(int i = 0; i < n - 1; i++){
         if(thuTu == 1){
-            cout << "mang sau khi sap xep la \n";
-            for(int j = i+ 1; j < n; i++){
+            for(int j = i+ 1; j < n; j++){
                 if(a[i] > a[j]){
+                    
                     hoanVi(a[i], a[j]);
                 }
             }
         }
         else if(thuTu == 2){
-            cout << "mang sau khi sap xep la \n";
-            for(int j = i+ 1; j < n; i++){
+            for(int j = i+ 1; j < n; j++){
                 if(a[i] < a[j]){
                     hoanVi(a[i], a[j]);
                 }
             }
         }
-        cout << a[i] << TAB;
+    }
+    xuatMang(a, n);
+}
+
+
+void soDuongTang(DaySo a, int n){
+    cout << "cac so duong tang dan va cac so khac giu nguyen vi tri la: \n";
+    for(int i = 0; i < n - 1; i++){
+        for(int j = i + 1; j < n; j++){
+            if(a[i] > 0 && a[j] > 0 && a[i] > a[j]){
+                hoanVi(a[i], a[j]);
+            }
+        }
+    }
+    xuatMang(a,n);
+    cout << endl;
+}
+
+
+
+void so0Cuoi(DaySo a, int n){
+    cout << endl;
+    for(int i = 0; i < n - 1; i++){
+        for(int j = i + 1 ; j < n; j++){
+            if((a[j] != 0 && a[i] == 0) || (a[i] > a[j] && a[i] != 0 && a[j] != 0) ){
+                hoanVi(a[j], a[i]);
+            }
+        }
+    }
+    xuatMang(a, n);
+}
+
+int sort(int a, int b){
+    return a > b;
+}
+
+
+void so0_AmGiam_DuongTang(DaySo a, int n){
+    cout << endl;
+    for(int i = 0; i < n - 1; i++){
+        for(int j = i + 1 ; j < n; j++){
+            if(sort(a[i], a[j])){
+                hoanVi(a[j], a[i]);
+            }
+        }
+    }
+    for(int i = 0; i < n - 1; i++){
+        for(int j = i + 1 ; j < n; j++){
+            if((a[i] != 0 && a[j] == 0) 
+            || (a[i] < a[j] && a[i] < 0 && a[j] < 0)  
+            ||  (a[i] > 0 && a[j] > 0 && a[j] < a[i])){
+                hoanVi(a[j], a[i]);
+            }
+        }
     }
     
-    return a[n];
+    xuatMang(a, n);
 }
+
+
+
+
+
+
+
+
+
+void leDauChanCuoi(DaySo a, int n){
+    cout << endl;
+    for(int i = 0; i < n - 1; i++){
+        for(int j = i + 1 ; j < n; j++){
+            if((a[j] % 2 != 0 && a[i] % 2== 0) || (a[i] % 2 == 0 && a[j] % 2 == 0 && a[i] < a[j]) || (a[i] % 2 != 0 && a[j] % 2 != 0 && a[i] > a[j])  ){
+                hoanVi(a[j], a[i]);
+            }
+        }
+    }
+
+
+
+    xuatMang(a, n);
+}
+
+
+void leGiamDuongTang(DaySo a, int n){
+    cout << endl;
+    for(int i = 0; i < n - 1; i++){
+        for(int j = i + 1 ; j < n; j++){
+            if( (a[i] % 2 == 0 && a[j] % 2 == 0 && a[i] > a[j]) || (a[i] % 2 != 0 && a[j] % 2 != 0 && a[i] < a[j])  ){
+                hoanVi(a[j], a[i]);
+            }
+        }
+    }
+
+
+
+
+    xuatMang(a, n);
+}
+
+
+
+void xaoTronNgauNhien(DaySo a, int n){
+    cout << endl;
+    srand(time(0));
+    for(int i = 0; i < n; i++){
+        int j = rand() % (n - i) + i;
+        hoanVi(a[i], a[j]);
+    }
+
+    xuatMang(a,n);
+}
+
+bool soNT(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i <= sqrt(n); i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+// Hàm sắp xếp số nguyên tố tăng dần, số còn lại giảm dần
+void NTDauTang_ConLaiGiam(int a[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            // Nếu a[j] là số nguyên tố và a[i] không phải số nguyên tố, hoặc cả hai đều không phải số nguyên tố và a[i] nhỏ hơn a[j], thì hoán vị
+            if ((soNT(a[j]) && !soNT(a[i])) || 
+                (!soNT(a[i]) && !soNT(a[j]) && a[i] < a[j]) || 
+                (soNT(a[i]) && soNT(a[j]) && a[i] > a[j])) {
+                hoanVi(a[i], a[j]);
+            }
+        }
+    }
+
+    // Xuất mảng sau khi sắp xếp
+    xuatMang(a, n);
+}
+
+
+
