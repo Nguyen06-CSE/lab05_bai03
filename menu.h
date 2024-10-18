@@ -546,11 +546,9 @@ bool soNT(int n) {
     return true;
 }
 
-// Hàm sắp xếp số nguyên tố tăng dần, số còn lại giảm dần
 void NTDauTang_ConLaiGiam(int a[], int n) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
-            // Nếu a[j] là số nguyên tố và a[i] không phải số nguyên tố, hoặc cả hai đều không phải số nguyên tố và a[i] nhỏ hơn a[j], thì hoán vị
             if ((soNT(a[j]) && !soNT(a[i])) || 
                 (!soNT(a[i]) && !soNT(a[j]) && a[i] < a[j]) || 
                 (soNT(a[i]) && soNT(a[j]) && a[i] > a[j])) {
@@ -559,7 +557,6 @@ void NTDauTang_ConLaiGiam(int a[], int n) {
         }
     }
 
-    // Xuất mảng sau khi sắp xếp
     xuatMang(a, n);
 }
 

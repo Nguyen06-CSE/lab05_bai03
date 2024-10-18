@@ -23,7 +23,6 @@ void print(){
     <<"6. sap cac so le theo thu tu giam gian, so chan tang dan nhung ko thay doi vi tri \n"
     <<"7. xao tron cac phan tu trong mang mot cach ngau nhien \n"
     <<"8. sap cac so NT nam o dau mang va tang, cac so con lai nam o cuoi mang va giam dan \n"
-    <<"9. tao mang ngau nhien\n"
     << "=======================================================================================================================\n \n";
 
 }
